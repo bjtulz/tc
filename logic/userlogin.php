@@ -20,8 +20,8 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
         die('Could not connect: ' . mysql_error());
        }
 	
-	$result = mysql_query("SELECT * FROM tc_user WHERE tc_user_loginname = '".$userlogin."'");
-	$row=mysql_fetch_array($result);
+	$result = mysqli_query("SELECT * FROM tc_user WHERE tc_user_loginname = '".$userlogin."'");
+	$row=mysqli_fetch_array($result);
 		
 	if ($row['tc_user_id' == "") {
 		$loginstate = "301";
@@ -32,7 +32,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 			$expiretime = strtotime("+1 day");
 			$insert = "INSERT INTO tc_usertoken (tc_usertoken_uid,tc_usertoken_token,tc_usertoken_timelimit) 
 			           VALUES (".$row['tc_user_id'].",'".$token."',".$expiretime.")";
-			if (mysql_query($insert) != false ){
+			if (mysqli_query($insert) != false ){
 				$loginstate = "200";
 				$userid = $row['tc_user_id'];
 				$usertoken = $token;
