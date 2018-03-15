@@ -37,7 +37,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 				$usertoken = $token;
 				$usertokenexpire = $expiretime;
 			} else {
-				$loginstate = "200"
+				$loginstate = "200";
 		    }
 		} else {
 			$loginstate = "301";
@@ -49,10 +49,5 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
                  'userToken' => $usertoken,
 				 'userTokenExpire' => $usertokenexpire);
     echo json_encode($output);
-	
-	
-	
-	
-	
 }
 ?>
