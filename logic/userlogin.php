@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);  
-if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
+if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 	echo "没有传入参数";
 }else{
 	//Input
