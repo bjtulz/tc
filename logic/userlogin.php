@@ -14,12 +14,12 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 	$usertokenexpire = "";
 	
 	//Link DB
-	$con = mysql_connect("localhost","tc","lizhe20080722");
+	$con = mysqli_connect("localhost","tc","lizhe20080722","tc");
     if (!$con)
        {
         die('Could not connect: ' . mysql_error());
        }
-	mysql_select_db("tc");
+	
 	$result = mysql_query("SELECT * FROM tc_user WHERE tc_user_loginname = '".$userlogin."'");
 	$row=mysql_fetch_array($result);
 		
