@@ -19,7 +19,7 @@
 	$result = mysql_query("SELECT * FROM tc_user WHERE tc_user_loginname = '".$userlogin."'");
 	$row=mysql_fetch_array($result);
 		
-	if ($row['tc_user_id']) == "" {
+	if ($row['tc_user_id'] == "") {
 		$loginstate = "301";
 	} else {
 		if ($row['tc_user_password'] == $usercath) {
