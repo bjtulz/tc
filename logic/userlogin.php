@@ -32,7 +32,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 			$expiretime = strtotime("+1 day");
 			$insert = "INSERT INTO tc_usertoken (tc_usertoken_uid,tc_usertoken_token,tc_usertoken_timelimit) 
 			           VALUES (".$row['tc_user_id'].",'".$token."',".$expiretime.")";
-			if (mysql_query($insert)) != false {
+			if (mysql_query($insert) != false ){
 				$loginstate = "200";
 				$userid = $row['tc_user_id'];
 				$usertoken = $token;
