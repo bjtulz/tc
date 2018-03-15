@@ -26,7 +26,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 		$loginstate = "301";
 	} else {
 		if ($row['tc_user_password'] == $usercath) {
-			$str = md5(uniqid(md5(microtime(true).$row['tc_user_id']),true));
+			$str = md5(time().$row['tc_user_id']);
 			$token = sha1($str);
 			$expiretime = strtotime("+1 day");
 			$insert = "INSERT INTO tc_usertoken (tc_usertoken_uid,tc_usertoken_token,tc_usertoken_timelimit) 
@@ -37,7 +37,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 				$usertoken = $token;
 				$usertokenexpire = $expiretime;
 			} else {
-				$loginstate = "200";
+				$loginstate = "500";
 		    }
 		} else {
 			$loginstate = "301";
