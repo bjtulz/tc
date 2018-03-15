@@ -31,7 +31,7 @@
 				$state = "303";
 			} else {
 				$result2 = mysqli_query($con,"SELECT * FROM tc_user WHERE tc_user_id = '".$userid."'");
-	            $row2=mysqli_fetch_array($result);
+	            $row2=mysqli_fetch_array($result2);
 				if ($row2['tc_user_showname'] != ""){
 					$state = "200";
 					$usershownname = $row2['tc_user_showname'];
