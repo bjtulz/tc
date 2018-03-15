@@ -9,7 +9,7 @@ if ($_POST['userID'] == "" || $_POST['userToken'] == ""){
 	//output
 	$type = "userinfo";
 	$state = ""; //200 Success 301 302 303 Invalid token 500 Internal error
-	$usershownname = ""
+	$usershownname = "";
 	$usertype = "";
 	$userstate = "";
 	
