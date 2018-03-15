@@ -1,6 +1,7 @@
 <?php
+error_reporting(E_ALL);  
 if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
-	echo "没有传入参数你是傻逼吗？";
+	echo "没有传入参数";
 }else{
 	//Input
 	$userlogin = $_POST['userloginname'];
@@ -43,7 +44,7 @@ if ($_POST['userloginname'] == "" || $_POST['userlogincath'] == ""){
 			$loginstate = "301";
 		}
 	}
-	$output = array (
+	$output = array(
 	             'loginState' => $loginstate,
 	             'userID' => $userid,
                  'userToken' => $usertoken,
