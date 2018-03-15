@@ -26,8 +26,8 @@
 			$str = md5(time().$row['tc_user_id']);
 			$token = sha1($str);
 			$expiretime = strtotime("+1 day");
-			$insert = "INSERT INTO tc_usertoken (tc_usertoken_uid,tc_usertoken_token,tc_usertoken_timelimit) 
-			           VALUES (".$row['tc_user_id'].",'".$token."',".$expiretime.")";
+			$insert = "UPDATE tc_usertoken SET tc_usertoken_token = '".$token."',tc_usertoken_timelimit = ".$expiretime."
+                       WHERE tc_usertoken_uid = ". $row['tc_user_id'];
 			if (mysqli_query($con,$insert) != false) {
 				$loginstate = "200";
 				$userid = $row['tc_user_id'];
