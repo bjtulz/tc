@@ -10,10 +10,10 @@ function getEvents ($userid,$usertoken){
 	$database = new Medoo([
 	// required
 	'database_type' => 'mysql',
-	'database_name' => $DBNAME,
-	'server' => $DBHOST,
-	'username' => $DBUSERNAME,
-	'password' => $DBPASSWORD,
+	'database_name' => 'tc',
+	'server' => 'localhost',
+	'username' => 'tc',
+	'password' => 'lizhe20080722'
 	]);
 	
 	$eventStates = array("Active","Inactive");
