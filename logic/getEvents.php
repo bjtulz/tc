@@ -35,11 +35,13 @@ function getEvents ($userid,$usertoken){
 	
 	foreach($alleventData as $event)
     {
+    echo "<tr>";
     echo "<td>".$event["tc_event_id"]."</td>";
 	echo "<td>".$event["tc_event_name"]."</td>";
 	echo "<td>".date('Y-m-d H:i:s',$event["tc_event_starttime"])."</td>";
 	echo "<td>".date('Y-m-d H:i:s',$event["tc_event_endtime"])."</td>";
 	echo "<td>".$eventStates[$event["tc_event_state"]-1]."</td>";
+	echo "</tr>";
     }
 	echo "</tbody>";
 
