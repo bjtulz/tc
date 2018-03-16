@@ -1,6 +1,8 @@
 <?php
 require "Medoo.php";
-include "dbconfig.php";
+require "dbconfig.php";
+
+use Medoo\Medoo;
 
 function getEvents ($userid,$usertoken){
 	
