@@ -24,7 +24,7 @@ function getEvents ($userid,$usertoken){
 	echo "<thead>";
     echo "<tr>";
 	echo "<th>Event ID</th>";
-	echo "<th>Event NAme</th>";
+	echo "<th>Event Name</th>";
 	echo "<th>Start Time</th>";
 	echo "<th>End time</th>";
 	echo "<th>Current State</th>";
