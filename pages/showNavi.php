@@ -38,10 +38,10 @@
                             <a href="#"><i class="fa fa-table fa-fw"></i> Events<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="eventList.php">Active Events</a>
+                                    <a href="eventListActive.php">Active Events</a>
                                 </li>
 								<li>
-                                    <a href="eventListActive.php">All Events</a>
+                                    <a href="eventList.php">All Events</a>
                                 </li>
 								<li>
                                     <a href="#">Add Event</a>
