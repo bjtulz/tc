@@ -161,14 +161,25 @@
 					switch (data.state){
 					    case 200:					
 						    $('#noticearea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to add new event. Event ID: "+data.newEventID+" Event name: "+data.newEventName+" ( "+timestampToTime(data.newEventStart)+" ~ "+timestampToTime(data.newEventEnd)+" ) Ticket number limit:"+data.newEventTicketLimit+"</div>");
+							$('#etitle').val("");
+			                $('#estart').val("");
+			                $('#eend').val("");
+			                $('#elimit').val("");
 							break;
 						case 301,302,303:
-                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to add new event</div>");
+                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to add new event, please check again or contact system admin.</div>");
 					        break;
 					}
 				  
 				}, "json");
 
+			});
+		$('#reset').click(function(){
+			$('#etitle').val("");
+			$('#estart').val("");
+			$('#eend').val("");
+			$('#elimit').val("");
+			
 			});
     });
     </script>
