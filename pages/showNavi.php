@@ -44,10 +44,10 @@
                                     <a href="eventList.php">All Events</a>
                                 </li>
 								<li>
-                                    <a href="#">Add Event</a>
+                                    <a href="eventAdd.php">Add Event</a>
                                 </li>
                                 <li>
-                                    <a href="#">Event Management</a>
+                                    <a href="eventManage.php">Event Management</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
