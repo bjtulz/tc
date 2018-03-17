@@ -77,8 +77,8 @@
                                             <label>Ticker Number Limit</label>
                                             <input type = "text" id = "elimit" class="form-control" placeholder="Number">
                                         </div>
-                                        <button id="submit" type="submit" class="btn btn-default">Add</button>
-                                        <button id="reset" type="reset" class="btn btn-default">Reset</button>
+                                        <button id="submit" class="btn btn-default">Add</button>
+                                        <button id="reset" class="btn btn-default">Reset</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
