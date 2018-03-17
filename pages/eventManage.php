@@ -162,7 +162,7 @@
 	function timestampToTime(timestamp) {
         var date = new Date(timestamp * 1000);
         Y = date.getFullYear() + '-';
-        M = (date.getMonth()+1 < 10 ? '0'+date.getMonth() : date.getMonth()) + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
         D = (date.getDate()+1 < 10 ? '0'+date.getDate() : date.getDate()) + '';
         h = (date.getHours()+1 < 10 ? '0'+date.getHours() : date.getHours()) + ':';
         m = (date.getMinutes()+1 < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ':';
