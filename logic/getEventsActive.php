@@ -4,7 +4,7 @@ require "dbconfig.php";
 
 use Medoo\Medoo;
 
-function getEvents ($userid,$usertoken){
+function getEvents (){
 	
 	
 	$database = new Medoo([
@@ -19,7 +19,8 @@ function getEvents ($userid,$usertoken){
 	$eventStates = array("Active","Inactive");
 	
 	$alleventData = $database->select("tc_event", 
-	                                  ["tc_event_id","tc_event_name","tc_event_starttime","tc_event_endtime","tc_event_state"]);
+	                                  ["tc_event_id","tc_event_name","tc_event_starttime","tc_event_endtime","tc_event_state"],
+									  ["tc_event_state" => 1]);
 	
 	echo "<thead>";
     echo "<tr>";
