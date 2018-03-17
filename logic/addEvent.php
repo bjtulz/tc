@@ -83,6 +83,7 @@ if ($_POST['userID'] == "" ||
 				 'newEventEnd' => $newEventEnd,
 				 'newEventTicketLimit' => $newEventTicketLimit);
     echo json_encode($output);
+	}
 
 
 
