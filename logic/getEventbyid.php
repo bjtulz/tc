@@ -66,6 +66,7 @@ if ($_POST['userID'] == "" || $_POST['userToken'] == "" || 	$_POST['eventID'] ==
 	             'type' => $type,
 	             'state' => $state,
                  'eventID' => $eventID,
+				 'eventName' => $eventName,
 				 'eventStarttime' => $eventStart,
 				 'eventEndtime' => $eventEnd,
 				 'eventState' => $eventState,
