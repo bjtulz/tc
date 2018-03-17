@@ -50,9 +50,8 @@ if ($_POST['userID'] == "" ||
 			$userStatus = 200; //token active
 		}
 		
-		if ( $userStatus != 200){
-			$state = 302;
-		} else {
+		if ( $userStatus == 200){
+			
 			
 			$database->insert("tc_event", [
 	                          "tc_event_name" => $eventName,
@@ -73,7 +72,7 @@ if ($_POST['userID'] == "" ||
 			} else {
 				$state = 303;
 			}
-		}
+		
 	}
 	$output = array(
 	             'type' => $type,
