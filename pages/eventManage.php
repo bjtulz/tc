@@ -68,6 +68,11 @@
 											</form>
 									</div>
 									<div class="col-lg-6">
+											<form role="form">
+												<div class="form-group">
+													<label></label>
+												</div>
+											</form>
 											<button id="load" class="btn btn-default">Load</button>
 											<button id="reset" class="btn btn-default">Reset</button>
 									<div>
