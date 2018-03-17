@@ -46,7 +46,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add an event</h1>
+                        <h1 id =  class="page-header">Add an event</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+				<div class="row">
+                    <div "noticearea" class="col-lg-12">
+                        
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -54,7 +60,7 @@
 				<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div id = "inputarea" class="panel-heading">
+                        <div class="panel-heading">
                             Input event information
                         </div>
                         <div class="panel-body">
@@ -151,13 +157,14 @@
 				  eventEnd:etimestamp,
 				  eventTicketLimit:eventlimit
 				},
-				function(data,status){
-					
-						
-						    $('#inputarea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to add new event. Event ID:"+data.newEventID+" Event name:"+data.newEventName+"("+timestampToTime(data.newEventStart)+"~"+timestampToTime(data.newEventEnd)+") Ticket number limit:"+data.newEventTicketLimit+"</div>");
-						
-                            $('#inputarea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to add new event</div>");
-					        alert("Data: " + data + "\nStatus: " + status);
+				function(data){
+					switch (data.state){
+					    case 200:					
+						    $('#noticearea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to add new event. Event ID:"+data.newEventID+" Event name:"+data.newEventName+" ( "+timestampToTime(data.newEventStart)+" ~ "+timestampToTime(data.newEventEnd)+" ) Ticket number limit:"+data.newEventTicketLimit+"</div>");
+						default:
+                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to add new event</div>");
+					        
+					}
 				  
 				}, "json");
 
