@@ -52,6 +52,12 @@
                 </div>
                 <!-- /.row -->
 				<div class="row">
+                    <div id ="noticearea" class="col-lg-12">
+                        
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -151,6 +157,50 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+	
+	<script>
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        D = date.getDate() + ' ';
+        h = date.getHours() + ':';
+        m = date.getMinutes() + ':';
+        s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+	$(document).ready(function() {
+		$('#load').click(function(){
+			var eventIDtoload = $('#eventid').val();
+			var userid = 1;
+			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			
+			$.post("../logic/getEventbyid.php",
+				{
+				  userID:userid,
+				  userToken:usertoken,
+				  eventID:eventIDtoload
+				},
+				function(data){
+					switch (data.state){
+					    case 200:
+							$('#eventid').val("");
+						    $('#eID').val(data.eventID);
+			                $('#eName').val(data.eventName);
+			                $('#eStart').val(timestampToTime(data.eventStarttime));
+			                $('#eEnd').val(timestampToTime(data.eventEndtime));
+							$('#eLimit').val(data.eventLimit);
+							$('#eStatus').val(data.eventState);
+							$('#eCreator').val(data.eventCreator);
+							break;
+						case 301,302,304,401:
+                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to load event, please check again or contact system admin.</div>");
+					        break;
+					}
+				}, "json");
+		}
+	}
+	</script>
 
 </body>
 
