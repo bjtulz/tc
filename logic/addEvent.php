@@ -16,8 +16,8 @@ if ($_POST['userID'] == "" ||
     $_POST['userToken'] == "" ||
 	$_POST['eventName'] == "" ||
 	$_POST['eventStart'] == "" ||
-	$_POST['eventEnd'] == ||
-	$_POST['eventTicketLimit']) {
+	$_POST['eventEnd'] == ""||
+	$_POST['eventTicketLimit'] == "") {
 		$state = 301;
 	} else {
 		$userID = $_POST['userID'];
