@@ -65,7 +65,7 @@ if ($_POST['userID'] == "" ||
 							  "tc_event_id" => $eventID
 							  ]);
 			
-			if ( $updateresult == 1 ) {
+			if ( $updateresult->rowCount() == 1 ) {
 				$state = 200;
 			} else {
 				$state = 400;
