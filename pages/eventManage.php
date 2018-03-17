@@ -52,29 +52,33 @@
                 </div>
                 <!-- /.row -->
 				<div class="row">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Load Event
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-lg-6">
-									<form role="form">
-                                        <div class="form-group">
-                                            <label>Event ID:</label>
-                                            <input type = "text" id = "eventid" class="form-control" placeholder="Event ID">
-                                    </form>
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+									Load Event
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-6">
+											<form role="form">
+												<div class="form-group">
+													<label>Event ID:</label>
+													<input type = "text" id = "eventid" class="form-control" placeholder="Event ID">
+												</div>
+											</form>
+									</div>
+									<div class="col-lg-6">
+											<button id="load" class="btn btn-default">Load</button>
+											<button id="reset" class="btn btn-default">Reset</button>
+									<div>
 								</div>
-								<div class="col-lg-6">
-									<button id="load" class="btn btn-default">Load</button>
-                                    <button id="reset" class="btn btn-default">Reset</button>
-								</div>
+							<!-- /.col-lg-12 -->
 							</div>
 						</div>
 					</div>
-                    <!-- /.col-lg-12 -->
                 </div>
 				<div class="row">
+				<div class="col-lg-12">
                     <div class="panel panel-default">
 						<div class="panel-heading">
                             Event Information
@@ -129,6 +133,7 @@
 					</div>
                     <!-- /.col-lg-12 -->
                 </div>
+				</div>
             </div>
             <!-- /.container-fluid -->
         </div>
