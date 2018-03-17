@@ -63,22 +63,22 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>Event Title</label>
-                                            <input type = "text" name = "etitle" class="form-control" placeholder="Title">
+                                            <input type = "text" id = "etitle" class="form-control" placeholder="Title">
                                         </div>
 										<div class="form-group">
                                             <label>Start Time</label>
-                                            <input type = "datetime-local" name = "estart" class="form-control" placeholder="Start">
+                                            <input type = "datetime-local" id = "estart" class="form-control" placeholder="Start">
                                         </div>
 										<div class="form-group">
                                             <label>End Time</label>
-                                            <input type = "datetime-local" name = "eend" class="form-control" placeholder="End">
+                                            <input type = "datetime-local" id = "eend" class="form-control" placeholder="End">
                                         </div>
 										<div class="form-group">
                                             <label>Ticker Number Limit</label>
-                                            <input type = "text" name = "limit" class="form-control" placeholder="Number">
+                                            <input type = "text" id = "elimit" class="form-control" placeholder="Number">
                                         </div>
-                                        <button type="submit" class="btn btn-default">Add</button>
-                                        <button type="reset" class="btn btn-default">Reset</button>
+                                        <button id="submit" type="submit" class="btn btn-default">Add</button>
+                                        <button id="reset" type="reset" class="btn btn-default">Reset</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -112,6 +112,41 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+	
+	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#submit').click(function(){
+			var eventname = $('#etitle').val();
+			var eventstart = $('#estart').val();
+			var eventend = $('#eend').val();
+			var eventlimit = $('#elimit').val();
+			
+			var times = new Date(eventstart);
+			var timee = new Date(eventend);
+			
+			var stimestamp = times.getTime()/1000;
+			var etimestamp = timee.getTime()/1000;
+			
+			var userid = 1;
+			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			
+			$.post("../logic/addEvent.php",
+				{
+				  userID:userid,
+				  userToken:usertoken,
+				  eventName:eventname,
+				  eventStart:,
+				  eventEnd:,
+				  eventTicketLimit:eventlimit
+				},
+				function(data,status){
+				  alert("数据：" + data + "\n状态：" + status);
+				});
+
+			});
+    });
+    </script>
 
 </body>
 
