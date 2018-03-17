@@ -29,5 +29,5 @@ function getUserState ($userid,$usertoken){
 	}
 	
 }
-getUserState {1,"e64175deead998c9df8bf7728e56698404d375ae"};
+getUserState (1,"e64175deead998c9df8bf7728e56698404d375ae");
 ?>
