@@ -77,13 +77,13 @@ if ($_POST['userID'] == "" ||
 		}
 	}
 	$output = array(
-	             'type' => $loginstate,
-	             'state' => $userid,
-                 'newEventID' => $usertoken,
-				 'newEventName' => $usertokenexpire,
-				 'newEventStart' => $usertokenexpire,
-				 'newEventEnd' => $usertokenexpire,
-				 'newEventTicketLimit' => $usertokenexpire);
+	             'type' => $type,
+	             'state' => $state,
+                 'newEventID' => $newEventID,
+				 'newEventName' => $newEventName,
+				 'newEventStart' => $newEventStart,
+				 'newEventEnd' => $newEventEnd,
+				 'newEventTicketLimit' => $newEventTicketLimit);
     echo json_encode($output);
 
 
