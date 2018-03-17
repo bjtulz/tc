@@ -40,10 +40,10 @@ require "../logic/getEvents.php";
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+       <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -80,16 +80,16 @@ require "../logic/getEvents.php";
                             <a href="#"><i class="fa fa-table fa-fw"></i> Events<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Active Events</a>
+                                    <a href="eventList.php">Active Events</a>
                                 </li>
 								<li>
-                                    <a href="flot.html">All Events</a>
+                                    <a href="eventListActive.php">All Events</a>
                                 </li>
 								<li>
-                                    <a href="morris.html">Add Event</a>
+                                    <a href="#">Add Event</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Event Management</a>
+                                    <a href="#">Event Management</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -99,10 +99,10 @@ require "../logic/getEvents.php";
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Tickets<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Ticket Issuance</a>
+                                    <a href="#">Ticket Issuance</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Ticket Search</a>
+                                    <a href="#">Ticket Search</a>
                                 </li>
 						    </ul>
                             <!-- /.nav-second-level -->
