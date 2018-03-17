@@ -1,6 +1,6 @@
 <?php
 require "Medoo.php";
-require "getUserState.php"
+require "getUserState.php";
 
 use Medoo\Medoo;
 
