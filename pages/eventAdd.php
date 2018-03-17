@@ -136,8 +136,8 @@
 				  userID:userid,
 				  userToken:usertoken,
 				  eventName:eventname,
-				  eventStart:,
-				  eventEnd:,
+				  eventStart:stimestamp,
+				  eventEnd:etimestamp,
 				  eventTicketLimit:eventlimit
 				},
 				function(data,status){
