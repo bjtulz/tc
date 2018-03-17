@@ -54,7 +54,7 @@ if ($_POST['userID'] == "" ||
 			$state = 302;
 		} else {
 			
-			$eventNewID = $database->insert("tc_event", [
+			$database->insert("tc_event", [
 	                          "tc_event_name" => $eventName,
 	                          "tc_event_starttime" => $eventStart,
 	                          "tc_event_endtime" => $eventEnd,
@@ -62,6 +62,7 @@ if ($_POST['userID'] == "" ||
 							  "tc_event_ticketlimit" => $eventTicketLimit,
 							  "tc_event_creator" => $userID,
 							  ]);
+			$eventNewID = $database->id();
 			if ( $eventNewID != "" ) {
 				$newEventID = $eventNewID;
 				$state = 200;
