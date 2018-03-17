@@ -54,7 +54,7 @@
 				<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div id = "inputarea" class="panel-heading">
                             Input event information
                         </div>
                         <div class="panel-body">
@@ -116,6 +116,16 @@
 	
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        D = date.getDate() + ' ';
+        h = date.getHours() + ':';
+        m = date.getMinutes() + ':';
+        s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
     $(document).ready(function() {
         $('#submit').click(function(){
 			var eventname = $('#etitle').val();
@@ -142,7 +152,13 @@
 				  eventTicketLimit:eventlimit
 				},
 				function(data,status){
-				  alert("数据：" + data + "\n状态：" + status);
+					switch (data.state){
+						case 200:
+						    $('#inputarea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to add new event. Event ID:"+data.newEventID+" Event name:"+data.newEventName+"("+timestampToTime(data.newEventStart)+"~"+timestampToTime(data.newEventEnd)+") Ticket number limit:"+data.newEventTicketLimit+"</div>");
+						default:
+                            $('#inputarea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to add new event</div>");
+					}
+				  
 				});
 
 			});
