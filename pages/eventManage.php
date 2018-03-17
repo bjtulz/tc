@@ -193,7 +193,7 @@
 							$('#eStatus').val(data.eventState);
 							$('#eCreator').val(data.eventCreator);
 							break;
-						case 301,302,304,401:
+						default:
                             $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to load event, please check again or contact system admin.</div>");
 					        break;
 					}
