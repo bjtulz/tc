@@ -52,6 +52,24 @@
                 </div>
                 <!-- /.row -->
 				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Load Event
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<form role="form">
+                                        <div class="form-group">
+                                            <label>Event ID:</label>
+                                            <input type = "text" id = "eventid" class="form-control" placeholder="Event ID">
+                                    </form>
+									<button id="load" class="btn btn-default">Load</button>
+                                    <button id="reset" class="btn btn-default">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
                     <div class="col-lg-12">
                       <label>Event ID:</label>
                       <input type = "text" id = "eID" class="form-control" placeholder="Event ID">  
@@ -106,7 +124,7 @@
                                         </div>
 									</form>
 									<button id="update" class="btn btn-default">Update</button>
-                                    <button id="reset" class="btn btn-default">Reset</button>
+                                    <button id="cancel" class="btn btn-default">Reset</button>
 								</div>
 							</div>
 						</div>
