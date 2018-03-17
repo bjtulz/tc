@@ -151,7 +151,7 @@
 				  eventEnd:etimestamp,
 				  eventTicketLimit:eventlimit
 				},
-				function(data,status){
+				function(data){
 					switch (data.state){
 						case 200:
 						    $('#inputarea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to add new event. Event ID:"+data.newEventID+" Event name:"+data.newEventName+"("+timestampToTime(data.newEventStart)+"~"+timestampToTime(data.newEventEnd)+") Ticket number limit:"+data.newEventTicketLimit+"</div>");
