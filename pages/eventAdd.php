@@ -139,6 +139,12 @@
 			var eventend = $('#eend').val();
 			var eventlimit = $('#elimit').val();
 			
+			if (eventname == "" || eventstart=="" || eventend=="" || eventlimit="")
+			{
+				$('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Please fullfill the form.</div>");
+				return;
+			}
+			
 			var times = new Date(eventstart);
 			var timee = new Date(eventend);
 			
