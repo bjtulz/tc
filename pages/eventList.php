@@ -85,6 +85,9 @@ require "../logic/getEvents.php";
 								<li>
                                     <a href="flot.html">All Events</a>
                                 </li>
+								<li>
+                                    <a href="morris.html">Add Event</a>
+                                </li>
                                 <li>
                                     <a href="morris.html">Event Management</a>
                                 </li>
@@ -121,7 +124,7 @@ require "../logic/getEvents.php";
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Active Events</h1>
+                        <h1 class="page-header">All Events</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
