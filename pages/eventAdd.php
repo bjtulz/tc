@@ -46,12 +46,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 id =  class="page-header">Add an event</h1>
+                        <h1   class="page-header">Add an event</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
 				<div class="row">
-                    <div "noticearea" class="col-lg-12">
+                    <div id ="noticearea" class="col-lg-12">
                         
                     </div>
                     <!-- /.col-lg-12 -->
