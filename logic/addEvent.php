@@ -44,8 +44,10 @@ if ($_POST['userID'] == "" ||
 								   ]]);
 		if (count($tokenData) == 0 ) {
 			$userStatus = 301; //token does not exist
+			$state = 301;
 		} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
 			$userStatus = 302; //token expired; 
+			$state = 302;
 		} else {
 			$userStatus = 200; //token active
 		}
