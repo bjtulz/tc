@@ -16,10 +16,10 @@ function getUserState ($userid,$usertoken){
 	
 	$tokenData = $database->select("tc_usertoken",
 	                               "*",
-								   "["AND" => [
+								   ["AND" => [
 								   "tc_usertoken_uid" => $userid,
 								   "tc_usertoken_token" => $usertoken
-								   ]]");
+								   ]]);
 	if (count($tokenData) == 0 ) {
 		echo "301"; //token does not exist
 	} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
