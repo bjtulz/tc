@@ -1,6 +1,5 @@
 <?php
 require "Medoo.php";
-require_once "getUserState.php";
 
 use Medoo\Medoo;
 
@@ -27,20 +26,36 @@ if ($_POST['userID'] == "" ||
 		$eventEnd = $_POST['eventEnd'];
 		$eventTicketLimit = $_POST['eventTicketLimit'];
 		
-		$userStatus = getUserState($userID,$userToken);
+		$current = time();
+		$database = new Medoo([
+	    // required
+	    'database_type' => 'mysql',
+	    'database_name' => 'tc',
+	    'server' => 'localhost',
+	    'username' => 'tc',
+	    'password' => 'lizhe20080722'
+	    ]);
+		
+		$tokenData = $database->select("tc_usertoken",
+	                               "*",
+								   ["AND" => [
+								   "tc_usertoken_uid" => $userid,
+								   "tc_usertoken_token" => $usertoken
+								   ]]);
+		if (count($tokenData) == 0 ) {
+			$userStatus = 301; //token does not exist
+		} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
+			$userStatus = 302; //token expired; 
+		} else {
+			$userStatus = 200; //token active
+		}
+		
 		if ( $userStatus != 200){
 			$state = 302;
 		} else {
 			$startTime = strtotime($eventStart);
 			$endtime = strtotime($eventEnd);
-			$database = new Medoo([
-			'database_type' => 'mysql',
-			'database_name' => 'tc',
-			'server' => 'localhost',
-			'username' => 'tc',
-			'password' => 'lizhe20080722'
-			]);
-			
+						
 			$eventNewID = $database->insert("tc_event", [
 	                          "tc_event_name" => $eventName,
 	                          "tc_event_starttime" => $startTime,
@@ -70,7 +85,6 @@ if ($_POST['userID'] == "" ||
 				 'newEventEnd' => $usertokenexpire,
 				 'newEventTicketLimit' => $usertokenexpire);
     echo json_encode($output);
-
 
 
 
