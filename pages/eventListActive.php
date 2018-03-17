@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require "../logic/getEvents.php";
+require "../logic/getEventsActive.php";
 ?>
 <html lang="en">
 
