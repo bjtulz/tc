@@ -53,13 +53,11 @@ if ($_POST['userID'] == "" ||
 		if ( $userStatus != 200){
 			$state = 302;
 		} else {
-			$startTime = strtotime($eventStart);
-			$endtime = strtotime($eventEnd);
-						
+			
 			$eventNewID = $database->insert("tc_event", [
 	                          "tc_event_name" => $eventName,
-	                          "tc_event_starttime" => $startTime,
-	                          "tc_event_endtime" => $endtime,
+	                          "tc_event_starttime" => $eventStart,
+	                          "tc_event_endtime" => $eventEnd,
 							  "tc_event_state" => 1,
 							  "tc_event_ticketlimit" => $eventTicketLimit,
 							  "tc_event_creator" => $userID,
