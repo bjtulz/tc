@@ -141,7 +141,7 @@
 			var userid = 1;
 			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
 			
-			$.post("../logic/getTicketsbytag.php",
+			$.post("../logic/getTicketbytag.php",
 				{
 				  userID:userid,
 				  userToken:usertoken,
