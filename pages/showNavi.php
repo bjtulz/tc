@@ -19,7 +19,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> User Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -60,13 +60,13 @@
                                     <a href="ticketIssue.php">Ticket Issuance</a>
                                 </li>
                                 <li>
-                                    <a href="ticketByEvent.php">Ticket List by Event</a>
+                                    <a href="ticketByEvent.php">Search Ticket by Event</a>
                                 </li>
 								<li>
                                     <a href="ticketByTag.php">Search Ticket by Tag</a>
                                 </li>
 								<li>
-                                    <a href="ticketByRef.php">Search by Ref</a>
+                                    <a href="ticketManage.php">Ticket Management</a>
                                 </li>
 						    </ul>
                             <!-- /.nav-second-level -->
