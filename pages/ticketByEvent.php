@@ -147,7 +147,7 @@
 						$('#ticketList').append("<tr><td>"+data[p].tc_ticket_ticketref+"</td><td>"+data[p].tc_ticket_tagid+"</td><td>"+data[p].tc_ticket_type+"</td><td>"+data[p].tc_ticket_state+"</td></tr>");
 					}
 				}, "json");
-		}
+		});
         $('#dataTables-example').DataTable({
             responsive: true
         });
