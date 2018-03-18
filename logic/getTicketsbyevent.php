@@ -33,7 +33,7 @@ $tokenData = $database->select("tc_usertoken",
 		}
 if ( $userStatus == 200){
 $ticketStates = array("Open","Used");
-$ticketType = array("Standard","Special");
+$ticketType = array("Normal","Special");
 $ticketsData = $database->select("tc_ticket", 
 	                             ["tc_ticket_ticketref","tc_ticket_tagid","tc_ticket_type","tc_ticket_state"],
 								 ["tc_ticket_eventid" => $eventID]);
