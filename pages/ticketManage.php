@@ -69,7 +69,7 @@
 											<form role="form">
 												<div class="form-group">
 													<label>Ticket Ref No:</label>
-													<input type = "text" id = "ticketref" class="form-control" placeholder="Event ID">
+													<input type = "text" id = "ticketref" class="form-control" placeholder="Ticket Ref">
 												</div>
 											</form>
 											<button id="load" class="btn btn-default">Load</button>
