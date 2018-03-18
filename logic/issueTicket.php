@@ -56,7 +56,7 @@ if ($_POST['userID'] == "" ||
 							  "tc_ticket_eventid" => $eventID,
 							  "tc_ticket_issuetime" => $current,
 							  "tc_ticket_issuer" => $userID,
-	                          "tc_ticket_type" => 1,
+	                          "tc_ticket_type" => $ticketType,
 	                          "tc_ticket_state" => 1,
 							  "tc_ticket_note" => $ticketNotes
 							  ]);
