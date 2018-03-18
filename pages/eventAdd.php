@@ -152,7 +152,7 @@
 			var etimestamp = timee.getTime()/1000;
 			
 			var userid = 1;
-			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
 			
 			$.post("../logic/addEvent.php",
 				{
