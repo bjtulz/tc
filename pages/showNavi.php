@@ -57,10 +57,16 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Tickets<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Ticket Issuance</a>
+                                    <a href="ticketIssue.php">Ticket Issuance</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ticket Search</a>
+                                    <a href="ticketByEvent.php">Ticket List by Event</a>
+                                </li>
+								<li>
+                                    <a href="ticketByTag.php">Search Ticket by Tag</a>
+                                </li>
+								<li>
+                                    <a href="ticketByRef.php">Search by Ref</a>
                                 </li>
 						    </ul>
                             <!-- /.nav-second-level -->
