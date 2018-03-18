@@ -63,7 +63,7 @@
 											<form role="form">
 												<div class="form-group">
 													<label>Tag ID:</label>
-													<input type = "text" id = "tagid" class="form-control" placeholder="Event ID">
+													<input type = "text" id = "tagid" class="form-control" placeholder="Tag ID">
 												</div>
 											</form>
 											<button id="load" class="btn btn-default">Load</button>

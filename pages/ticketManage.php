@@ -46,11 +46,117 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank</h1>
+                        <h1 class="page-header">Ticket Management</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+				<div class="row">
+                    <div id ="noticearea" class="col-lg-12">
+                        
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+									Load Ticket Information
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-6">
+											<form role="form">
+												<div class="form-group">
+													<label>Ticket Ref No:</label>
+													<input type = "text" id = "ticketref" class="form-control" placeholder="Event ID">
+												</div>
+											</form>
+											<button id="load" class="btn btn-default">Load</button>
+											<button id="reset" class="btn btn-default">Reset</button>
+									</div>
+								</div>
+							<!-- /.col-lg-12 -->
+							</div>
+						</div>
+					</div>
+                </div>
+				<div class="row">
+				<div class="col-lg-12">
+                    <div class="panel panel-default">
+						<div class="panel-heading">
+                            Ticket Information
+                        </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<form role="form">
+                                        <div class="form-group">
+                                            <label>Ticket ID</label>
+                                            <input type = "text" id = "tID" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Ticket Ref No.</label>
+                                            <input type = "text" id = "tRef" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Ticket Tag ID</label>
+                                            <input type = "text" id = "tTag" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Event ID</label>
+                                            <input type = "text" id = "tEvent" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Issuance Time</label>
+                                            <input type = "datetime-local" id = "tIsTime" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Issue User</label>
+                                            <input type = "text" id = "tIsUser" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Ticket Notes</label>
+                                            <input type = "text" id = "tNotes" class="form-control" placeholder="">
+                                        </div>
+                                        
+                                    </form>
+								</div>
+
+								<div class="col-lg-6">
+									<form role="form">
+										<div class="form-group">
+                                            <label>Checked on</label>
+                                            <input type = "datetime-local" id = "tChkTime" class="form-control" placeholder="">
+                                        </div>
+										<div class="form-group">
+                                            <label>Checked by</label>
+                                            <input type = "text" id = "tChkUser" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ticket Type</label>
+                                            <select id = "tType" class="form-control">
+                                                <option value=1>Standard</option>
+                                                <option value=2>Special</option>
+                                            </select>
+                                        </div>
+										<div class="form-group">
+                                            <label>Ticket State</label>
+                                            <select id = "tState" class="form-control">
+                                                <option value=1>Available</option>
+                                                <option value=2>Expired</option>
+                                            </select>
+                                        </div>
+									</form>
+									<button id="update" class="btn btn-default">Update</button>
+                                    <button id="cancel" class="btn btn-default">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <!-- /.col-lg-12 -->
+                </div>
+				</div>
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -70,6 +176,53 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+	
+	<script>
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        D = (date.getDate()+1 < 10 ? '0'+date.getDate() : date.getDate()) + '';
+        h = (date.getHours()+1 < 10 ? '0'+date.getHours() : date.getHours()) + ':';
+        m = (date.getMinutes()+1 < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ':';
+        s = (date.getSeconds()+1 < 10 ? '0'+date.getSeconds() : date.getSeconds());
+        return Y+M+D+"T"+h+m+s;
+    }
+	$(document).ready(function() {
+		$('#load').click(function(){
+			var ticketReftoload = $('#ticketref').val();
+			var userid = 1;
+			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
+			
+			$.post("../logic/getTicketbyref.php",
+				{
+				  userID:userid,
+				  userToken:usertoken,
+				  ticketRef:ticketReftoload
+				},
+				function(data){
+					switch (data.state){
+					    case 200:
+							$('#tID').val(data.ticketID);
+						    $('#tRef').val(data.ticketRef);
+			                $('#tTag').val(data.ticketTag);
+			                $('#tEvent').val(data.ticketEvent);
+			                $('#tIsTime').val(timestampToTime(data.ticketIssuetime));
+							$('#tIsUser').val(data.ticketIssuer);
+							$('#tNotes').val(data.ticketNote);
+							$('#tChkTime').val(timestampToTime(data.ticketChecktime));
+							$('#tChkUser').val(data.ticketChecker);
+							$('#tType').val(data.ticketType);
+							$('#tState').val(data.ticketState);
+							break;
+						default:
+                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to load ticket, please check again or contact system admin.</div>");
+					        break;
+					}
+				}, "json");
+		});
+	});
+	</script>
 
 </body>
 
