@@ -199,6 +199,48 @@
 					}
 				}, "json");
 		});
+		$('#update').click(function(){
+			var userid = 1;
+			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			var eventID = $('#eID').val();
+			var eventName = $('#eName').val();
+			var eventStart = $('#eStart').val();
+			var eventEnd = $('#eEnd').val();
+			var eventLimit = $('#eLimit').val();
+			var eventStatus = $('#eStatus').val();
+			
+			var times = new Date(eventStart);
+			var timee = new Date(eventEnd);
+			
+			var stimestamp = times.getTime()/1000;
+			var etimestamp = timee.getTime()/1000;
+			
+			$.post("../logic/updateEvent.php",
+				{
+				  userID:userid,
+				  userToken:usertoken,
+				  eventID:eventID,
+				  eventName:eventName,
+				  eventStart:stimestamp,
+				  eventEnd:etimestamp,
+				  eventTicketLimit:eventLimit,
+				  eventStatus:eventStatus
+				},
+				function(data){
+					switch (data.state){
+					    case 200:
+							$('#noticearea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to update this event. </div>");
+							break;
+						default:
+                            $('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to update event, please check again or contact system admin.</div>");
+					        break;
+					}
+				}, "json");
+			
+			
+			
+		});
+		
 	});
 	</script>
 
