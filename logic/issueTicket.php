@@ -49,7 +49,7 @@ if ($_POST['userID'] == "" ||
 			$userStatus = 200; //token active
 		}
 		if ( $userStatus == 200){
-			$ref = md5(string($current).$tagID.$eventID);
+			$ref = md5($current.$tagID.$eventID);
 			$database->insert("tc_ticket", [
 	                          "tc_ticket_ticketref" => $ref,
 							  "tc_ticket_tagid" => $tagID,
