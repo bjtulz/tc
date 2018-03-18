@@ -156,6 +156,7 @@
 					tickettypes["2"]="Special";
 					
 					var tbl = $('#dataTables-example').DataTable();
+					tbl.destroy();
 					for (var p in data){
 						tbl.row.add([data[p].tc_ticket_ticketref,data[p].tc_ticket_tagid,tickettypes[data[p].tc_ticket_type],ticketstates[data[p].tc_ticket_state]]);
 					}
