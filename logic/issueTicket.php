@@ -61,11 +61,11 @@ if ($_POST['userID'] == "" ||
 							  "tc_ticket_note" => $ticketNotes
 							  ]);
 			$ticketNewID = $database->id();
-			if ( $ticketNewID != "" ) {
+			if ( $ticketNewID != 0 ) {
 				$state = 200;
 				$ticketRef = $ref;
 				$ticketTag = $tagID;
-				$ticketEvent = $ticketNewID;
+				$ticketEvent = $eventID;
 			} else {
 				$state = 303;
 			}
