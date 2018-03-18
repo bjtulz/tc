@@ -15,6 +15,7 @@ $database = new Medoo([
 	'username' => 'tc',
 	'password' => 'lizhe20080722'
 	]);
+$current = time();
 $tokenData = $database->select("tc_usertoken",
 	                               "*",
 								   ["AND" => [
