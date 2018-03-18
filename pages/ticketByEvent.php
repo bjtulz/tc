@@ -154,9 +154,12 @@
 					var tickettypes=new Array();
 					tickettypes["1"]="Standard";
 					tickettypes["2"]="Special";
+					
+					var tbl = $('#dataTables-example').DataTable();
 					for (var p in data){
-						$('#ticketList').append("<tr><td>"+data[p].tc_ticket_ticketref+"</td><td>"+data[p].tc_ticket_tagid+"</td><td>"+tickettypes[data[p].tc_ticket_type]+"</td><td>"+ticketstates[data[p].tc_ticket_state]+"</td></tr>");
+						tbl.row.add([data[p].tc_ticket_ticketref,data[p].tc_ticket_tagid],tickettypes[data[p].tc_ticket_type],ticketstates[data[p].tc_ticket_state]);
 					}
+					tbl.draw();
 				}, "json");
 		});
         $('#dataTables-example').DataTable({
