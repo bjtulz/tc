@@ -72,6 +72,7 @@ if ($_POST['userID'] == "" || $_POST['userToken'] == "" || 	$_POST['ticketRef'] 
 	             'type' => $type,
 	             'state' => $state,
                  'ticketID' => $ticketID,
+				 'ticketRef' => $ticketRef,
 				 'ticketTag' => $ticketTag,
 				 'ticketEvent' => $ticketEvent,
 				 'ticketIssuetime' => $ticketIssuetime,
