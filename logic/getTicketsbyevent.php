@@ -37,10 +37,6 @@ $ticketType = array("Normal","Special");
 $ticketsData = $database->select("tc_ticket", 
 	                             ["tc_ticket_ticketref","tc_ticket_tagid","tc_ticket_type","tc_ticket_state"],
 								 ["tc_ticket_eventid" => $eventID]);
-foreach ($ticketsData as $ticket){
-	$ticket["tc_ticket_type"]=$ticketStates[$ticket["tc_ticket_type"]-1];
-	$ticket["tc_ticket_state"]=$ticketType[$ticket["tc_ticket_state"]-1];
-}
 echo json_encode($ticketsData);
 
 
