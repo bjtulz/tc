@@ -65,7 +65,7 @@ if ($_POST['userID'] == "" ||
 				$state = 200;
 				$ticketRef = $ref;
 				$ticketTag = $tagID;
-				$ticketEvent = $eventID;
+				$ticketEvent = $ticketNewID;
 			} else {
 				$state = 303;
 			}
