@@ -157,7 +157,7 @@
 					
 					var tbl = $('#dataTables-example').DataTable();
 					for (var p in data){
-						tbl.row.add([data[p].tc_ticket_ticketref,data[p].tc_ticket_tagid,tickettypes[data[p].tc_ticket_type],ticketstates[data[p].tc_ticket_state]);
+						tbl.row.add([data[p].tc_ticket_ticketref,data[p].tc_ticket_tagid,tickettypes[data[p].tc_ticket_type],ticketstates[data[p].tc_ticket_state]]);
 					}
 					tbl.draw();
 				}, "json");
