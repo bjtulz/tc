@@ -148,8 +148,11 @@
 				  eventID:eventIDtoload
 				},
 				function(data){
+					var ticketstates=new Array();
+					ticketstates["1"]="Available";
+					ticketstates["2"]="Expired";
 					for (var p in data){
-						$('#ticketList').append("<tr><td>"+data[p].tc_ticket_ticketref+"</td><td>"+data[p].tc_ticket_tagid+"</td><td>"+data[p].tc_ticket_type+"</td><td>"+data[p].tc_ticket_state+"</td></tr>");
+						$('#ticketList').append("<tr><td>"+data[p].tc_ticket_ticketref+"</td><td>"+data[p].tc_ticket_tagid+"</td><td>"+data[p].tc_ticket_type+"</td><td>"+ticketstates[data[p].tc_ticket_state]+"</td></tr>");
 					}
 				}, "json");
 		});
