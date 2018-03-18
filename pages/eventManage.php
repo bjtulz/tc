@@ -173,7 +173,7 @@
 		$('#load').click(function(){
 			var eventIDtoload = $('#eventid').val();
 			var userid = 1;
-			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
 			
 			$.post("../logic/getEventbyid.php",
 				{
@@ -201,7 +201,7 @@
 		});
 		$('#update').click(function(){
 			var userid = 1;
-			var usertoken = "e64175deead998c9df8bf7728e56698404d375ae";
+			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
 			var eventID = $('#eID').val();
 			var eventName = $('#eName').val();
 			var eventStart = $('#eStart').val();
