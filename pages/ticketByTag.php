@@ -46,12 +46,70 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank</h1>
+                        <h1 class="page-header">Find Ticket by Tag</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-            </div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+									Load Ticket List by Tag
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-6">
+											<form role="form">
+												<div class="form-group">
+													<label>Tag ID:</label>
+													<input type = "text" id = "tagid" class="form-control" placeholder="Event ID">
+												</div>
+											</form>
+											<button id="load" class="btn btn-default">Load</button>
+											<button id="reset" class="btn btn-default">Reset</button>
+									</div>
+								</div>
+							<!-- /.col-lg-12 -->
+							</div>
+						</div>
+					</div>
+                </div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Tickets under current event
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+									<thead>
+										<tr>
+											<th>Ticket Ref No.</th>
+											<th>Tag ID</th>
+											<th>Type</th>
+											<th>State</th>
+										</tr>
+									</thead>
+									<tbody id="ticketList">
+									
+									</tbody>
+								</table>
+								<!-- /.table-responsive -->
+								<div class="well">
+									<h4>Notes</h4>
+									<p>Please select one event for further operation.</p>
+								</div>
+							</div>
+							<!-- /.panel-body -->
+						</div>
+						<!-- /.panel -->
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+            <!-- /.row -->
+			</div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
@@ -67,9 +125,49 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+	
+	<!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+	
+	<script>
+    $(document).ready(function() {
+		$('#load').click(function(){
+			var tagIDtoload = $('#tagid').val();
+			var userid = 1;
+			var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
+			
+			$.post("../logic/getTicketsbytag.php",
+				{
+				  userID:userid,
+				  userToken:usertoken,
+				  tagID:tagIDtoload
+				},
+				function(data){
+					var ticketstates=new Array();
+					ticketstates["1"]="Available";
+					ticketstates["2"]="Expired";
+					var tickettypes=new Array();
+					tickettypes["1"]="Standard";
+					tickettypes["2"]="Special";
+					
+					var tbl = $('#dataTables-example').DataTable();
+					tbl.clear();
+					for (var p in data){
+						tbl.row.add([data[p].tc_ticket_ticketref,data[p].tc_ticket_tagid,tickettypes[data[p].tc_ticket_type],ticketstates[data[p].tc_ticket_state]]);
+					}
+					tbl.draw();
+				}, "json");
+		});
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 
 </body>
 
