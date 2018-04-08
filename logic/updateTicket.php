@@ -56,7 +56,7 @@ if ($_POST['userID'] == "" ||
 	                          "tc_ticket_type" => $ticketType,
 	                          "tc_ticket_state" => $ticketState
 							  ],[
-							  "tc_event_ticketref" => $eventID
+							  "tc_event_ticketref" => $ticketRef
 							  ]);
 			
 			if ( $updateresult->rowCount() == 1 ) {
@@ -65,7 +65,7 @@ if ($_POST['userID'] == "" ||
 				$state = 400;
 			}
 		
-	}
+		}
 	$output = array(
 	             'type' => $type,
 	             'state' => $state);
