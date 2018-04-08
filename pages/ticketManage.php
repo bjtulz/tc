@@ -137,14 +137,13 @@
                                             <label>Ticket Type</label>
                                             <select id = "tType" class="form-control">
                                                 <option value=1>Standard</option>
-                                                <option value=2>Special</option>
                                             </select>
                                         </div>
 										<div class="form-group">
                                             <label>Ticket State</label>
                                             <select id = "tState" class="form-control">
                                                 <option value=1>Available</option>
-                                                <option value=2>Expired</option>
+                                                <option value=0>Expired</option>
                                             </select>
                                         </div>
 									</form>
@@ -220,6 +219,35 @@
 					        break;
 					}
 				}, "json");
+			
+		$('#update').click(function(){
+		var userid = 1;
+		var usertoken = "1a39cfe7ea929a253c41d215fb46668659ddf8f0";
+		var ticketRef = $('#tRef').val();
+		var ticketTag = $('#tTag').val();
+		var ticketType = $('#tType').val();
+		var ticketState = $('#tState').val();
+		
+		
+		$.post("../logic/updateTicket.php",
+			{
+			  userID:userid,
+			  userToken:usertoken,
+			  ticketRef:ticketRef,
+			  ticketTag:ticketTag,
+			  ticketType:ticketType,
+			  ticketState:ticketState
+			},
+			function(data){
+				switch (data.state){
+					case 200:
+						$('#noticearea').append("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Succeed to update this ticket. </div>");
+						break;
+					default:
+						$('#noticearea').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Failed to update ticket, please check again or contact system admin.</div>");
+						break;
+				}
+			}, "json");
 		});
 	});
 	</script>
