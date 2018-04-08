@@ -13,7 +13,7 @@ if ($_POST['userID'] == "" ||
 	$_POST['ticketTag'] == "" ||
 	$_POST['ticketType'] == ""||
 	$_POST['ticketState'] == "") {
-		$state = 400; //lack parameters
+		$state = 300; //lack parameters
 	} else {
 		$userID = $_POST['userID'];
 		$userToken = $_POST['userToken'];
