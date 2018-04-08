@@ -150,7 +150,7 @@
 				function(data){
 					var ticketstates=new Array();
 					ticketstates["1"]="Available";
-					ticketstates["2"]="Expired";
+					ticketstates["0"]="Expired";
 					var tickettypes=new Array();
 					tickettypes["1"]="Standard";
 					tickettypes["2"]="Special";
