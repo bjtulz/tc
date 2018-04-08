@@ -56,7 +56,7 @@ if ($_POST['userID'] == "" ||
 	                          "tc_ticket_type" => $ticketType,
 	                          "tc_ticket_state" => $ticketState
 							  ],[
-							  "tc_event_ticketref" => $ticketRef
+							  "tc_ticket_ticketref" => $ticketRef
 							  ]);
 			
 			if ( $updateresult->rowCount() == 1 ) {
@@ -70,7 +70,7 @@ if ($_POST['userID'] == "" ||
 	             'type' => $type,
 	             'state' => $state);
     echo json_encode($output);
-	echo $updateresult->rowCount();
+	//echo $updateresult->rowCount();
 	}
 
 
