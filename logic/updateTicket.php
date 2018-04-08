@@ -70,6 +70,7 @@ if ($_POST['userID'] == "" ||
 	             'type' => $type,
 	             'state' => $state);
     echo json_encode($output);
+	echo $updateresult->rowCount();
 	}
 
 
