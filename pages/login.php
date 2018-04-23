@@ -51,7 +51,7 @@
                                     <input class="form-control" placeholder="Password" id="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a class="btn btn-lg btn-success btn-block" id="login" >Login</a>
+                                <button class="btn btn-lg btn-success btn-block" id="login" >Login</button>
                             </fieldset>
                         </form>
                     </div>
