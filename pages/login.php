@@ -51,7 +51,7 @@
                                     <input class="form-control" placeholder="Password" id="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block" id="login" >Login</button>
+                                <button class="btn btn-lg btn-success btn-block" id="submit" >Login</button>
                             </fieldset>
                         </form>
                     </div>
@@ -86,7 +86,7 @@
     }
     $(document).ready(function() {
 		document.cookie = "";
-        $('#login').click(function(){
+        $('#submit').click(function(){
 			var login = $('#login').val();
 			var password = $('#password').val();
 						
