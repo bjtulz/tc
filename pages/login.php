@@ -51,7 +51,7 @@
                                     <input class="form-control" placeholder="Password" id="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.php" class="btn btn-lg btn-success btn-block" id="login" >Login</a>
+                                <a class="btn btn-lg btn-success btn-block" id="login" >Login</a>
                             </fieldset>
                         </form>
                     </div>
