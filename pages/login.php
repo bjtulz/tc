@@ -100,8 +100,8 @@
 			
 			$.post("../logic/userlogin.php",
 				{
-				  userloginname:login,
-				  userlogincath:password
+				  userLoginname:login,
+				  userLogincath:password
 				},
 				function(data){
 					switch (data.loginState){

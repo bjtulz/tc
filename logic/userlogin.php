@@ -4,8 +4,8 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 	echo "没有传入参数";
 }else{
 	//Input
-	$userlogin = $_POST['userloginname'];
-	$usercath = $_POST['userlogincath'];
+	$userlogin = $_POST['userLoginname'];
+	$usercath = $_POST['userLogincath'];
 	
 	//Output
 	$loginstate = ""; //state: 200 success 301 wrong username/password 400 internal error
