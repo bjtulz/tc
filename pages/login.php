@@ -97,7 +97,7 @@
 			}
 				
 			
-			$.post("../logic/userLogin.php",
+			$.post("../logic/userlogin.php",
 				{
 				  userloginname:login,
 				  userlogincath:password
