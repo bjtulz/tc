@@ -38,7 +38,7 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 			$token = sha1($str);
 			$expiretime = strtotime("+1 day");
 			
-			if ($database->has("tc_usertoken",["tc_usertoken_uid" =>$userData[0]['tc_user_id']))
+			if ($database->has("tc_usertoken",["tc_usertoken_uid" =>$userData[0]['tc_user_id']]))
 			{			
 			$row = $database->update("tc_usertoken",[
 			"tc_usertoken_token" => $token,
