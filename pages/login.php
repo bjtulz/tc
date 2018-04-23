@@ -112,8 +112,8 @@
 							document.cookie = userid+"|"+token;
 							break;
 						case 301,302,303,400,500:
-                            $('#panel-body').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Incorrect username or password.</div>");
-					        break;
+                            alert("Username or password incorrect");
+							break;
 					}
 				  
 				}, "json");
