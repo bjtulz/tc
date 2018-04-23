@@ -1,38 +1,62 @@
 <?php
-error_reporting(E_ALL);  
+require "Medoo.php";
+
+use Medoo\Medoo;
+
+$type = "loginResult";
+
+
+$state = "";
+$userid = "";
+$usertoken = "";
+$usertokenexpire = "";
 if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
-	echo "没有传入参数";
+	$state = 400;
 }else{
-	//Input
 	$userlogin = $_POST['userLoginname'];
 	$usercath = $_POST['userLogincath'];
 	
-	//Output
-	$loginstate = ""; //state: 200 success 301 wrong username/password 400 internal error
-	$userid = "";
-	$usertoken = "";
-	$usertokenexpire = "";
-	
-	//Link DB
-	$con = mysqli_connect("localhost","tc","lizhe20080722","tc");
-    if (!$con)
-       {
-        die('Could not connect: ' . mysql_error());
-       }
-	
-	$result = mysqli_query($con,"SELECT * FROM tc_user WHERE tc_user_loginname = '".$userlogin."'");
-	$row=mysqli_fetch_array($result);
+	$database = new Medoo([
+	    'database_type' => 'mysql',
+	    'database_name' => 'tc',
+	    'server' => 'localhost',
+	    'username' => 'tc',
+	    'password' => 'lizhe20080722'
+	    ]);
 		
-	if ($row['tc_user_id'] == "") {
+	$userData = $database->select("tc_user",
+	                               "*",
+								   ["tc_user_loginname" => $userlogin]);
+	
+	$userDataCount = sizeof($userData);
+			
+	if ($userDataCount == 0) {
 		$loginstate = 301;
 	} else {
-		if ($row['tc_user_password'] == $usercath) {
-			$str = md5(time().$row['tc_user_id']);
+		if ($userData[0]['tc_user_password'] == $usercath) {
+			$str = md5(time().$userData[0]['tc_user_id']);
 			$token = sha1($str);
 			$expiretime = strtotime("+1 day");
-			$insert = "UPDATE tc_usertoken SET tc_usertoken_token = '".$token."',tc_usertoken_timelimit = ".$expiretime."
-                       WHERE tc_usertoken_uid = ". $row['tc_user_id'];
-			if (mysqli_query($con,$insert) != false) {
+			
+			if ($database->has("tc_usertoken",["tc_usertoken_uid" =>$userData[0]['tc_user_id']))
+			{			
+			$row = $database->update("tc_usertoken",[
+			"tc_usertoken_token" => $token,
+			"tc_usertoken_timelimit" => $expiretime
+			],[
+			"tc_usertoken_uid" => $userData[0]['tc_user_id']
+			]);
+			} else 
+			{
+			$row = $database->insert("tc_usertoken",[
+			"tc_usertoken_uid" => $userData[0]['tc_user_id'],
+			"tc_usertoken_token" => $token,
+			"tc_usertoken_timelimit" => $expiretime
+			])
+			}
+			
+			$rowcount = $row->rowCount();
+			if ($rowcount!=0) {
 				$loginstate = 200;
 				$userid = $row['tc_user_id'];
 				$usertoken = $token;
