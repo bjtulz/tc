@@ -111,7 +111,7 @@
 						    alert("Succeed to login with user: "+userid);
 							document.cookie = userid+"|"+token;
 							break;
-						case 301,302,303,400,500:
+						case 301:
                             alert("Username or password incorrect");
 							break;
 					}
