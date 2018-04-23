@@ -57,7 +57,7 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 			$rowcount = $row->rowCount();
 			if ($rowcount!=0) {
 				$loginstate = 200;
-				$userid = $row['tc_user_id'];
+				$userid = $userData[0]['tc_user_id'];
 				$usertoken = $token;
 				$usertokenexpire = $expiretime;
 			} else {
