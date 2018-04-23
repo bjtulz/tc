@@ -24,7 +24,7 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 	$row=mysqli_fetch_array($result);
 		
 	if ($row['tc_user_id'] == "") {
-		$loginstate = "301";
+		$loginstate = 301;
 	} else {
 		if ($row['tc_user_password'] == $usercath) {
 			$str = md5(time().$row['tc_user_id']);
@@ -33,15 +33,15 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 			$insert = "UPDATE tc_usertoken SET tc_usertoken_token = '".$token."',tc_usertoken_timelimit = ".$expiretime."
                        WHERE tc_usertoken_uid = ". $row['tc_user_id'];
 			if (mysqli_query($con,$insert) != false) {
-				$loginstate = "200";
+				$loginstate = 200;
 				$userid = $row['tc_user_id'];
 				$usertoken = $token;
 				$usertokenexpire = $expiretime;
 			} else {
-				$loginstate = "500";
+				$loginstate = 500;
 		    }
 		} else {
-			$loginstate = "301";
+			$loginstate = 301;
 		}
 	}
 	$output = array(
