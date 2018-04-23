@@ -46,13 +46,12 @@ if ($_POST['userLoginname'] == "" || $_POST['userLogincath'] == ""){
 			],[
 			"tc_usertoken_uid" => $userData[0]['tc_user_id']
 			]);
-			} else 
-			{
+			} else {
 			$row = $database->insert("tc_usertoken",[
 			"tc_usertoken_uid" => $userData[0]['tc_user_id'],
 			"tc_usertoken_token" => $token,
 			"tc_usertoken_timelimit" => $expiretime
-			])
+			]);
 			}
 			
 			$rowcount = $row->rowCount();
