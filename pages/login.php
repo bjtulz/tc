@@ -41,17 +41,17 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="panel-body">
                         <form role="form">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="loginid" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" id="login" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" id="password" type="password" value="">
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <a href="index.php" class="btn btn-lg btn-success btn-block" id="login" >Login</a>
                             </fieldset>
                         </form>
                     </div>
@@ -71,6 +71,55 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+	
+	<!-- Page-Level -->
+    <script>
+	function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        D = date.getDate() + ' ';
+        h = date.getHours() + ':';
+        m = date.getMinutes() + ':';
+        s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+    $(document).ready(function() {
+		document.cookie = "";
+        $('#login').click(function(){
+			var login = $('#login').val();
+			var password = $('#password').val();
+						
+			if (login == "" || password=="")
+			{
+				$('#panel-body').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Please fullfill the form.</div>");
+				return;
+			}
+				
+			
+			$.post("../logic/userLogin.php",
+				{
+				  userloginname:login,
+				  userlogincath:password
+				},
+				function(data){
+					switch (data.loginState){
+					    case 200:
+						    var userid = data.userID;
+							var token = data.userToken;
+						    alert("Succeed to login with user: "+userid);
+							document.cookie = userid+"|"+token;
+							break;
+						case 301,302,303,400,500:
+                            $('#panel-body').append("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>Incorrect username or password.</div>");
+					        break;
+					}
+				  
+				}, "json");
+
+			});
+	});
+    </script>
 
 </body>
 
