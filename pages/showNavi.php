@@ -1,3 +1,44 @@
+<?php
+require "Medoo.php";
+
+use Medoo\Medoo;
+
+$userid = $_COOKIE["userid"];
+$cookie = $_COOKIE["cookie"];
+
+$current = time();
+$database = new Medoo([
+// required
+'database_type' => 'mysql',
+'database_name' => 'tc',
+'server' => 'localhost',
+'username' => 'tc',
+'password' => 'lizhe20080722'
+]);
+		
+$tokenData = $database->select("tc_usertoken",
+						   "*",
+						   ["AND" => [
+						   "tc_usertoken_uid" => $userID,
+						   "tc_usertoken_token" => $userToken
+						   ]]);
+
+if (count($tokenData) == 0 ) {
+			echo "<script language='javascript' type='text/javascript'>"; 
+            echo "alert('Need log in first.');";			
+			echo "window.location.href='login.php';";  
+			echo "</script>"; 
+		} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
+			echo "<script language='javascript' type='text/javascript'>"; 
+            echo "alert('Log in statues expired.');";			
+			echo "window.location.href='login.php';";  
+			echo "</script>"; 
+		} else {
+			break;
+		}
+
+
+?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
