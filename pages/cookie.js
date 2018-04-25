@@ -1,12 +1,12 @@
 function setToken(userid,token){ 
-         var cookieString="userid="+escape(userid)+"; token="+escape(token);
-		 var d = new Date();
+         var d = new Date();
          d.setTime(d.getTime()+(1*24*60*60*1000));
-         cookieString=cookieString+"; expire="+d.toGMTString(); 
-         document.cookie=cookieString;
+         cookieString=cookieString+"; expire="+d.toGMTString();
+         document.cookie="userid="+escape(userid)+"; expire="+d.toGMTString();
+		 document.cookie="token="+escape(token)+"; expire="+d.toGMTString();
 }
 
-function getCookie(name){ 
+function getToken(name){ 
          var strCookie=document.cookie; 
          var arrCookie=strCookie.split("; "); 
          for(var i=0;i<arrCookie.length;i++){ 
