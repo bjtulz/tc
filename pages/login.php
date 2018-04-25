@@ -111,7 +111,7 @@
 							var token = data.userToken;
 							setToken(userid,token);
 						    alert("Succeed to login with user: "+userid);
-							window.navigate("index.php");
+							window.location.href='index.php';
 							//document.cookie = userid+"|"+token;
 							break;
 						case 301:
