@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+require "../logic/getDevices.php";
+?>
 <head>
 
     <meta charset="utf-8">
@@ -60,7 +62,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                
+                            
+							<?php getDevices (); ?>
 						                                    
                             </table>
                             <!-- /.table-responsive -->

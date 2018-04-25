@@ -4,7 +4,7 @@ require "dbconfig.php";
 
 use Medoo\Medoo;
 
-function getEvents (){
+function getDevices (){
 	
 	
 	$database = new Medoo([
