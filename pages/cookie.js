@@ -1,8 +1,8 @@
 function setToken(userid,token){ 
-         var cookieString="userid="+escape(userid)+";token="+escape(token); 
-         var date=new Date(); 
-         date.setTime(date.getTime+1*3600*1000); 
-         cookieString=cookieString+"; expire="+date.toGMTString(); 
+         var cookieString="userid="+escape(userid)+"; token="+escape(token);
+		 var d = new Date();
+         d.setTime(d.getTime()+(exdays*24*60*60*1000));
+         cookieString=cookieString+"; expire="+d.toGMTString(); 
          document.cookie=cookieString;
 }
 
