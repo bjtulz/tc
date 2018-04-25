@@ -73,6 +73,20 @@
                         </li>
 						
 						<li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Devices<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="deviceList.php">List of Devices</a>
+                                </li>
+                                <li>
+                                    <a href="deviceManage.php">Device Management</a>
+                                </li>
+								
+						    </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+						
+						<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> TBD</a>
                         </li>
                         
