@@ -1,36 +1,29 @@
 <?php
 require "Medoo.php";
-
 use Medoo\Medoo;
 
 $userid = $_COOKIE["userid"];
 $cookie = $_COOKIE["token"];
-
 $current = time();
-$database = new Medoo([
-						'database_type' => 'mysql',
+$database = new Medoo(['database_type' => 'mysql',
 						'database_name' => 'tc',
 						'server' => 'localhost',
 						'username' => 'tc',
 						'password' => 'lizhe20080722'
 						]);
-		
 $tokenData = $database->select("tc_usertoken",
 						   "*",
 						   ["AND" => [
 						   "tc_usertoken_uid" => $userID,
 						   "tc_usertoken_token" => $userToken
 						   ]]);
-
 if (count($tokenData) == 0 ) {
 			echo "1"; 
 		} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
 			echo "2"; 
 		} else {
-			break;
+			echo "3";
 		}
-
-
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
