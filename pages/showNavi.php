@@ -23,15 +23,9 @@ $tokenData = $database->select("tc_usertoken",
 						   ]]);
 
 if (count($tokenData) == 0 ) {
-			echo "<script language='javascript' type='text/javascript'>"; 
-            echo "alert('Need log in first.');";			
-			echo "window.location.href='login.php';";  
-			echo "</script>"; 
+			echo "1"; 
 		} else if ($tokenData[0]["tc_usertoken_timelimit"] <= $current ){
-			echo "<script language='javascript' type='text/javascript'>"; 
-            echo "alert('Log in statues expired.');";			
-			echo "window.location.href='login.php';";  
-			echo "</script>"; 
+			echo "2"; 
 		} else {
 			break;
 		}
