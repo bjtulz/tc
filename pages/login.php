@@ -74,6 +74,7 @@
     <script src="../dist/js/sb-admin-2.js"></script>
 	
 	<!-- Page-Level -->
+	<script src="cookie.js"></script>
     <script>
 	function timestampToTime(timestamp) {
         var date = new Date(timestamp * 1000);
@@ -109,7 +110,8 @@
 						    var userid = data.userID;
 							var token = data.userToken;
 						    alert("Succeed to login with user: "+userid);
-							document.cookie = userid+"|"+token;
+							setToken(userid,token);
+							//document.cookie = userid+"|"+token;
 							break;
 						case 301:
                             alert("Username or password incorrect");
