@@ -8,13 +8,12 @@ $cookie = $_COOKIE["cookie"];
 
 $current = time();
 $database = new Medoo([
-// required
-'database_type' => 'mysql',
-'database_name' => 'tc',
-'server' => 'localhost',
-'username' => 'tc',
-'password' => 'lizhe20080722'
-]);
+						'database_type' => 'mysql',
+						'database_name' => 'tc',
+						'server' => 'localhost',
+						'username' => 'tc',
+						'password' => 'lizhe20080722'
+						]);
 		
 $tokenData = $database->select("tc_usertoken",
 						   "*",
