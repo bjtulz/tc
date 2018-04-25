@@ -109,8 +109,9 @@
 					    case 200:
 						    var userid = data.userID;
 							var token = data.userToken;
-						    alert("Succeed to login with user: "+userid);
 							setToken(userid,token);
+						    alert("Succeed to login with user: "+userid);
+							window.navigate("index.php");
 							//document.cookie = userid+"|"+token;
 							break;
 						case 301:
