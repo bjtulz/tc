@@ -4,7 +4,7 @@ require "Medoo.php";
 use Medoo\Medoo;
 
 $userid = $_COOKIE["userid"];
-$cookie = $_COOKIE["cookie"];
+$cookie = $_COOKIE["token"];
 
 $current = time();
 $database = new Medoo([
